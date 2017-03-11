@@ -2,7 +2,9 @@ package com.zlrx.streams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class BasicStreamOperations {
 
@@ -54,6 +56,18 @@ public class BasicStreamOperations {
         //testData.stream().map(Word::new).forEach(System.out::println);
     }
 
+    public void otherInterestingStreamOperations() {
+        List<String> testData = testStringData();
+        boolean anyWordLongerThanFiveCharacter = testData.stream().anyMatch(str -> str.length() > 5);
+
+        OptionalInt sumOfFirstHundredNumber = IntStream.range(0, 100).reduce((accumulator, number) -> accumulator += number);
+        System.out.println(sumOfFirstHundredNumber);
+
+        printSeparator();
+
+        testData.stream().distinct().forEach(System.out::println);
+    }
+
 
     public static void main(String[] args) {
         BasicStreamOperations basicStreamOperations = new BasicStreamOperations();
@@ -70,6 +84,8 @@ public class BasicStreamOperations {
         sortStream();
         printSeparator();
         mapStream();
+        printSeparator();
+        otherInterestingStreamOperations();
     }
 
     private List<String> testStringData() {
@@ -80,6 +96,7 @@ public class BasicStreamOperations {
         strings.add("sworld");
         strings.add("play");
         strings.add("animal");
+        strings.add("sworld");
         strings.add("car");
         strings.add("sun");
         strings.add("java");
