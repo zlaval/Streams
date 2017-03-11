@@ -1,10 +1,11 @@
 package com.zlrx.streams;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static com.zlrx.streams.TestData.testStringData;
 
 public class BasicStreamOperations {
 
@@ -88,20 +89,6 @@ public class BasicStreamOperations {
         otherInterestingStreamOperations();
     }
 
-    private List<String> testStringData() {
-        List<String> strings = new ArrayList<>();
-        strings.add("foo");
-        strings.add("bar");
-        strings.add("home");
-        strings.add("sworld");
-        strings.add("play");
-        strings.add("animal");
-        strings.add("sworld");
-        strings.add("car");
-        strings.add("sun");
-        strings.add("java");
-        return strings;
-    }
 
     private void printSeparator() {
         System.out.println("====================================");
