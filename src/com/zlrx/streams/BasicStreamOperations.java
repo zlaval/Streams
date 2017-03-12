@@ -69,6 +69,16 @@ public class BasicStreamOperations {
         testData.stream().distinct().forEach(System.out::println);
     }
 
+    private void peekExample() {
+        testStringData().stream()
+                .map(String::toUpperCase)
+                .peek(System.out::println)
+                .limit(3)
+                .map(String::toLowerCase)
+                .peek(System.out::println)
+                .reduce((acc, str) -> acc += str);
+    }
+
 
     public static void main(String[] args) {
         BasicStreamOperations basicStreamOperations = new BasicStreamOperations();
@@ -87,6 +97,8 @@ public class BasicStreamOperations {
         mapStream();
         printSeparator();
         otherInterestingStreamOperations();
+        printSeparator();
+        peekExample();
     }
 
 
