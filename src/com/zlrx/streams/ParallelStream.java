@@ -9,6 +9,10 @@ import java.util.stream.IntStream;
 
 public class ParallelStream {
 
+    private void basicParallelExample() {
+        TestData.fewTestStringData().parallelStream().map(String::toUpperCase).forEach(System.out::println);
+    }
+
     private void parallelSpeedTest() {
         List<String> randomStrings = IntStream.range(1, 1_000_000)
                 .boxed()
@@ -42,6 +46,8 @@ public class ParallelStream {
     }
 
     private void start() {
+        basicParallelExample();
+        System.out.println("======================");
         parallelSpeedTest();
         System.out.println("======================");
         parallelStreamThreads();
