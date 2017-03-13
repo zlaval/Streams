@@ -1,5 +1,6 @@
 package com.zlrx.streams;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -31,9 +32,19 @@ public class ParallelStream {
         System.out.println(String.format("Parallelstream rendezés időtartam: %d ms", pms));
     }
 
+    private void parallelStreamThreads() {
+        Arrays.asList("1", "2", "3", "4", "5", "6", "7").parallelStream()
+                .map(s -> {
+                    System.out.println("Map     " + s + " value in thread: " + Thread.currentThread().getName());
+                    return s;
+                })
+                .forEach(s -> System.out.println("Foreach " + s + " value in thread: " + Thread.currentThread().getName()));
+    }
 
     private void start() {
         parallelSpeedTest();
+        System.out.println("======================");
+        parallelStreamThreads();
     }
 
     public static void main(String[] args) {
