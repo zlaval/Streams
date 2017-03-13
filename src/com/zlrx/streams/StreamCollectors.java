@@ -14,20 +14,20 @@ public class StreamCollectors {
     }
 
     private void start() {
-        grouping();
+        groupingByYear();
         averageYear();
-        toMap();
-        partitioning();
+        carsToMap();
+        partitioningByYear();
         ownCollector();
     }
 
-    private void grouping() {
+    private void groupingByYear() {
         List<Car> cars = carsGenerator();
         Map<Integer, List<Car>> carsMappedByYear = cars.stream().collect(Collectors.groupingBy(car -> car.year));
         System.out.println(carsMappedByYear);
     }
 
-    private void partitioning() {
+    private void partitioningByYear() {
         List<Car> cars = carsGenerator();
         Map<Boolean, List<Car>> carsPartitionedByYear =
                 cars.stream().collect(Collectors.partitioningBy(car -> car.year > 2012));
@@ -40,7 +40,7 @@ public class StreamCollectors {
         System.out.println(averageYear);
     }
 
-    private void toMap() {
+    private void carsToMap() {
         List<Car> cars = carsGenerator();
         Map<String, Integer> carNameYearMap = cars.stream().collect(Collectors.toMap(car -> car.name, car -> car.year));
         System.out.println(carNameYearMap);
