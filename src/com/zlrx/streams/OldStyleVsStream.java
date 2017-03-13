@@ -10,7 +10,7 @@ public class OldStyleVsStream {
     private void oldStyleListFilter() {
         List<Integer> filterable = getIntegers();
         List<Integer> filtered = new ArrayList<>();
-        for (int element : filterable) {
+        for (Integer element : filterable) {
             if (element % 2 == 0) {
                 filtered.add(element);
             }
