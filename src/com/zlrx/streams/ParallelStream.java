@@ -3,11 +3,18 @@ package com.zlrx.streams;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static com.zlrx.streams.TestData.printSeparator;
+
 public class ParallelStream {
+
+    private void numberOfThreadInForkJoinPool() {
+        System.out.println(ForkJoinPool.commonPool().getParallelism());
+    }
 
     private void basicParallelExample() {
         TestData.fewTestStringData().parallelStream().map(String::toUpperCase).forEach(System.out::println);
@@ -26,7 +33,7 @@ public class ParallelStream {
         long ms = TimeUnit.NANOSECONDS.toMillis(streamEndTime - streamStartTime);
         System.out.printf("Stream rendezés időtartam: %d ms\n", ms);
 
-        System.out.println("=================================");
+        printSeparator();
 
         long parallelStreamStartTime = System.nanoTime();
         randomStrings.parallelStream().sorted().collect(Collectors.toList());
@@ -46,10 +53,12 @@ public class ParallelStream {
     }
 
     private void start() {
+        numberOfThreadInForkJoinPool();
+        printSeparator();
         basicParallelExample();
-        System.out.println("======================");
+        printSeparator();
         parallelSpeedTest();
-        System.out.println("======================");
+        printSeparator();
         parallelStreamThreads();
     }
 

@@ -34,5 +34,9 @@ public final class TestData {
         return strings;
     }
 
+    public static void printSeparator() {
+        System.out.println("====================================");
+    }
+
 
 }

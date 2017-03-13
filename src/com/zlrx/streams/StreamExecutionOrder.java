@@ -2,6 +2,8 @@ package com.zlrx.streams;
 
 import java.util.List;
 
+import static com.zlrx.streams.TestData.printSeparator;
+
 public class StreamExecutionOrder {
 
 
@@ -46,7 +48,7 @@ public class StreamExecutionOrder {
 
     private void start() {
         wrongOrder();
-        System.out.println("===========================");
+        printSeparator();
         goodOrder();
     }
 

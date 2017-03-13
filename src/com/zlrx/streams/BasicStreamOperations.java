@@ -5,6 +5,7 @@ import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static com.zlrx.streams.TestData.printSeparator;
 import static com.zlrx.streams.TestData.testStringData;
 
 public class BasicStreamOperations {
@@ -101,9 +102,5 @@ public class BasicStreamOperations {
         peekExample();
     }
 
-
-    private void printSeparator() {
-        System.out.println("====================================");
-    }
 
 }
